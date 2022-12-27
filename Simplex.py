@@ -89,23 +89,20 @@ class Simplex:
       new_cr = self.matrix_cr - np.dot(temp_matrix_cb, np.dot(np.linalg.inv(temp_matrix_B),self.matrix_R))
       new_R = np.dot(np.linalg.inv(temp_matrix_B), self.matrix_R)
       new_b = np.dot(np.linalg.inv(temp_matrix_B), self.matrix_b)
-      objective_function_value = self.objective_function_value()
       # np.dot(temp_matrix_cb, np.dot(np.linalg.inv(temp_matrix_B), self.matrix_b))
       
       self.matrix_R[:] = new_R[:]
       self.matrix_cr[:] = new_cr[:]
       self.matrix_b[:] = new_b[:]
-      print(objective_function_value)
       # print(f"\nValor das variáveis básicas\n-----------\n{self.matrix_b}\n-----------\n\n")
-      print("----------------------------TABLEAU----------------------------")
-      print(self.tableau)
-      print("---------------------------------------------------------------")
+      # print("----------------------------TABLEAU----------------------------")
+      # print(self.tableau)
+      # print("---------------------------------------------------------------")
       self.solve()
     elif min(self.matrix_cr) > 0:
-      print(self.matrix_b)
       value = self.objective_function_value()
-      print(f"\n\n\nResultado: {value} com as variáveis {[value + 1 for value in self.index_of_base_variables]} na base\n\n\n")
-      sleep(30)
+      print(f"\n\nResultado: {value} com as variáveis {[value + 1 for value in self.index_of_base_variables]} na base\n\n\n")
+      sleep(10)
     pass
   
 # Apresentação das informações do tableau
